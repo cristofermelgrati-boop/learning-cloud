@@ -2,4 +2,19 @@ app.log
 prueba.txt
 .girinore
 .giringore
+# Logs
+*.log
 
+# Temporary files
+*.save
+*.txtx
+
+# Test Folders
+test/
+repaso_dia
+
+# Local scrips (to be organized later)
+services_for.py
+servicios_cloud.py
+while_numbers.py
+IAM.txt
