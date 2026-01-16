@@ -1,45 +1,85 @@
-# Hello Cloud (AWS) — EC2 + Nginx + S3 Static Website
+Hello Cloud ☁️
 
-## Overview
-Hello Cloud is a hands-on AWS project to practice cloud fundamentals by deploying:
-- A public web server on an EC2 instance running Nginx
-- A static website hosted on Amazon S3
+Overview
 
-This project focuses on core concepts: networking, security groups, SSH access, and least-privilege permissions.
+Hello Cloud is a hands-on beginner project built to practice core AWS and cloud fundamentals through real infrastructure setup.
 
-## Architecture
-- **EC2 (Amazon Linux)**: Hosts a basic HTTP web page served by **Nginx**
-- **Security Group**:
-  - **Inbound 22 (SSH)**: allowed only from my public IP
-  - **Inbound 80 (HTTP)**: open to the internet (0.0.0.0/0)
-- **S3 Bucket (Static Website Hosting)**:
-  - Hosts `index.html`
-  - Public access is limited to `s3:GetObject` for website content
+The project demonstrates how to deploy a simple web service using an EC2 instance with Nginx and how to host static content using Amazon S3.
 
-## What I implemented
-1. Launched an EC2 instance in **eu-north-1 (Stockholm)**
-2. Created and used an SSH key pair to connect securely to the instance
-3. Installed and started **Nginx**
-4. Updated the default Nginx page to display a custom “Hello Cloud – Cristofer” page
-5. Created an S3 bucket and enabled **Static Website Hosting**
-6. Uploaded `index.html` and validated the public website endpoint
+This project is part of my learning path toward entry-level cloud and IT roles.
 
-## Security notes
-- SSH access is restricted to **my IP only**
-- The S3 bucket is configured to expose only the required static objects
-- This project applies the **Principle of Least Privilege**
+⸻
 
-## How to verify
-### EC2 website
-Open the EC2 public IPv4 in a browser:
-- `http://<EC2_PUBLIC_IP>`
+Architecture
 
-### S3 static website
-Open the S3 website endpoint:
-- `http://<BUCKET_NAME>.s3-website.<REGION>.amazonaws.com`
+The project uses the following components:
+	•	Amazon EC2
+	•	Linux instance (Free Tier eligible)
+	•	Nginx web server
+	•	Public HTTP access (port 80)
+	•	SSH access restricted to my IP (port 22)
+	•	Amazon S3
+	•	Static website hosting enabled
+	•	Public access limited to the required HTML object
+	•	Used to store and serve static content
+	•	IAM
+	•	Used to manage permissions securely
+	•	Public access controlled through bucket policies and Block Public Access settings
 
-## Next improvements (Roadmap)
-- Add a custom HTML/CSS page and basic assets (images)
-- Automate provisioning (IaC) with Terraform later
-- Add CloudWatch monitoring / logs
-- Put CloudFront in front of S3 for HTTPS + caching
+⸻
+
+Project Structure
+
+projects/hello-cloud/
+├── README.md
+├── PLAN.md
+├── s3-static/
+│   └── index.html
+├── scripts/
+│   └── project_info.py
+└── output/
+    └── project_info.txt   (generated file, not versioned)
+
+
+⸻
+
+What I Learned
+
+Through this project, I practiced and understood:
+	•	How to launch and secure an EC2 instance
+	•	How security groups work (public vs restricted access)
+	•	How to configure and run Nginx on Linux
+	•	How static website hosting works in Amazon S3
+	•	The difference between source code and generated output
+	•	Basic Git workflow and repository organization
+
+⸻
+
+Python Script
+
+The project_info.py script generates a text file with basic project metadata such as:
+	•	Project name
+	•	Author
+	•	Date
+	•	AWS services used
+
+The generated file is placed in the output/ directory, which is intentionally excluded from version control using .gitignore.
+
+⸻
+
+Notes
+	•	All resources were selected within the AWS Free Tier.
+	•	This project focuses on understanding fundamentals rather than production readiness.
+	•	The goal is learning by doing, not deploying a commercial application.
+
+⸻
+
+Author
+
+Cristofer
+
+Aspiring Cloud / IT professional
+Currently building hands-on experience with AWS, Linux, Git, and Python.
+
+⸻
+
