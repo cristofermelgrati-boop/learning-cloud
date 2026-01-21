@@ -18,3 +18,19 @@ services_for.py
 servicios_cloud.py
 while_numbers.py
 IAM.txt
+# Logs
+*.log
+
+# OS / Editor
+.DS_Store
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Outputs
+projects/**/output/
